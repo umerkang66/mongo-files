@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // Schema tells us the type of properties that are inside the User Model
 const userSchema = new mongoose.Schema({
   name: String,
+  postCount: Number,
 });
 
 // Model is the entire collection is the database

@@ -2,7 +2,7 @@
 const assert = require('assert');
 const User = require('../src/users');
 
-// The purpose of this sting is to modify the testing feedback that we get from mocha
+// The purpose of this string is to modify the testing feedback that we get from mocha
 describe('Creating records', () => {
   // In describe block there will be a lot of describe functions
   // Whenever mocha sees "it" block, mocha run it as a test

@@ -14,14 +14,19 @@ describe('Reading users out of database', () => {
     });
   });
 
-  it('finds all users with a name of joe', done => {
-    console.log(newUser._id);
-
+  it('finds all users with a name of Umer', done => {
     // newUser is an instance of User
-    User.find({ name: 'Umer' }).then(data => {
+    User.find({ name: newUser.name }).then(users => {
       // Check if id of the user we created is the same to the id of the user we got from database
       // Make sure to call toString() because id is not a string but an object (ObjectId)
-      assert(data[0]._id.toString() === newUser._id.toString());
+      assert(users[0]._id.toString() === newUser._id.toString());
+      done();
+    });
+  });
+
+  it('find a user with a particular id', done => {
+    User.findOne({ _id: newUser._id }).then(user => {
+      assert(user.name === 'Umer');
       done();
     });
   });
