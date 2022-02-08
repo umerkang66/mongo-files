@@ -1,6 +1,6 @@
 // assert function helps us with insertion (comparisons)
 const assert = require('assert');
-const User = require('../src/users');
+const User = require('../src/user');
 
 // The purpose of this string is to modify the testing feedback that we get from mocha
 describe('Creating records', () => {

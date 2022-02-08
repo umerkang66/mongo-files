@@ -1,13 +1,14 @@
 const assert = require('assert');
-const User = require('../src/users');
+const User = require('../src/user');
 
 describe('Update a User', () => {
   let newUser;
   const newName = 'Umer Kang';
-  const initialPostCount = 1;
+  const initialLikes = 1;
 
   beforeEach(done => {
-    newUser = new User({ name: 'Umer', postCount: initialPostCount });
+    // We currently dont have likes property in the schema, but we can still specify it but it will not be saved into the database
+    newUser = new User({ name: 'Umer', likes: initialLikes });
     newUser.save().then(() => done());
   });
 
@@ -56,11 +57,12 @@ describe('Update a User', () => {
     assertName(User.findByIdAndUpdate(newUser._id, { name: newName }), done);
   });
 
-  it('A user can have their postCount incremented by 1', done => {
-    User.updateMany({ _id: newUser._id }, { $inc: { postCount: 13 } })
+  // xit means this test will not run by mocha
+  it('A user can have their likes incremented by 1', done => {
+    User.updateMany({ _id: newUser._id }, { $inc: { likes: 13 } })
       .then(() => User.find({}))
       .then(users => {
-        assert(users[0].postCount === initialPostCount + 13);
+        assert(users[0].likes === initialLikes + 13);
         done();
       });
   });
