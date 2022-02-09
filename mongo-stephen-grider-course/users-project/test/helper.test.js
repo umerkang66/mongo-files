@@ -22,10 +22,16 @@ before(done => {
 
 // beforeEach is a function that will run before every test
 beforeEach(done => {
+  const { users, comments, blogposts } = mongoose.connection.collections;
+
   // Whole user collection will be deleted before every test
-  mongoose.connection.collections.users.drop(err => {
-    // When we call done we are saying that run next test
-    if (err) return console.log(err);
-    done();
+  // Drop all the collections one by one
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        // When we call done we are saying that run next test
+        done();
+      });
+    });
   });
 });

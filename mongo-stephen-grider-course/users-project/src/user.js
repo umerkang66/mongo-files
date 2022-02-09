@@ -21,6 +21,12 @@ const userSchema = new mongoose.Schema({
   },
   // If we specify Schema here, mongoose is going to assume that it should be a list of postSchema embedded documents
   posts: [postSchema],
+  blogPosts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'blogPost',
+    },
+  ],
 });
 
 // Virtual Property
@@ -31,8 +37,9 @@ userSchema.virtual('postCount').get(function () {
   return this.posts.length;
 });
 
-// Model is the entire collection is the database
+// Model is the entire collection is the database (in the plural form i.e."users")
 // The first argument will be made for collection name
 // We can also call it User model or User class
 const User = mongoose.model('user', userSchema);
+
 module.exports = User;

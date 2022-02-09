@@ -1,7 +1,7 @@
 {
   "name": "users-project",
   "version": "1.0.0",
-  "description": "Learning mongodb",
+  "description": "Learning mongodb from Stephen Grider mongodb course",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
