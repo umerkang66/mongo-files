@@ -3,11 +3,6 @@ const User = require('../src/user');
 const BlogPost = require('../src/blogPost');
 
 describe('Middleware', () => {
-  beforeEach(done => {
-    const kang = new User({ name: 'Kang' });
-    kang.save().then(() => done());
-  });
-
   let newUser, blogPost;
 
   beforeEach(done => {

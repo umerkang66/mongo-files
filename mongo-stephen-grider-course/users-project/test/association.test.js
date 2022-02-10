@@ -6,12 +6,6 @@ const BlogPost = require('../src/blogPost');
 describe('Associations', () => {
   let newUser, blogPost, comment;
 
-  // Call it before every test so deleting the user document will be successful
-  beforeEach(done => {
-    const user = new User({ name: 'Kang' });
-    user.save().then(() => done());
-  });
-
   beforeEach(done => {
     newUser = new User({ name: 'Umer' });
 

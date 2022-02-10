@@ -2,14 +2,6 @@ const assert = require('assert');
 const User = require('../src/user');
 
 describe('Sub Document', () => {
-  beforeEach(done => {
-    // We have add a user in the db, because before running every test, mocha will delete the existing user collection, if we don't have a collection, it will give error, so we add a collection
-    const newUser = new User({ name: 'Kang' });
-    newUser.save().then(() => {
-      done();
-    });
-  });
-
   it('can create a sub document', done => {
     const postTitle = 'PostTitle';
 
