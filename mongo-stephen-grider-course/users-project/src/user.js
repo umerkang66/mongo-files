@@ -37,6 +37,17 @@ userSchema.virtual('postCount').get(function () {
   return this.posts.length;
 });
 
+// Middlewares: Pre and Post event hooks
+userSchema.pre('remove', function (next) {
+  // This callback function will be called before any record will be deleted by "deleteOne"
+  // Here "this" === "newUser"
+  // We can pull other models by using this
+  const BlogPostModel = mongoose.model('blogPost');
+
+  // $in operator expects an array and find the documents according the values specified
+  BlogPostModel.deleteOne({ _id: { $in: this.blogPosts } }).then(() => next());
+});
+
 // Model is the entire collection is the database (in the plural form i.e."users")
 // The first argument will be made for collection name
 // We can also call it User model or User class

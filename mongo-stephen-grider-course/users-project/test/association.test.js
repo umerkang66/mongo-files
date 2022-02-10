@@ -41,6 +41,7 @@ describe('Associations', () => {
       });
   });
 
+  // Saves a deeply nested database (not save actually, it does it on all find queries)
   it('saves a full graph', async () => {
     const user = await User.findOne({ name: 'Umer' }).populate({
       // Find the user object, and populate the blogPosts (path)
@@ -59,6 +60,7 @@ describe('Associations', () => {
       },
     });
 
+    // Assertions
     assert(user.name === 'Umer');
     assert(user.blogPosts[0].title === 'JS is Great');
     assert(user.blogPosts[0].comments[0].content === 'Congrats on great post');

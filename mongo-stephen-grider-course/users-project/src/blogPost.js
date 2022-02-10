@@ -10,6 +10,7 @@ const blogPostSchema = new mongoose.Schema({
 });
 
 // Creating the model out of schema
+// Collection name will be this blogPost but in plural form (blogPosts)
 const BlogPost = mongoose.model('blogPost', blogPostSchema);
 
 module.exports = BlogPost;
