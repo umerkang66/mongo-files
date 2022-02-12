@@ -1,0 +1,22 @@
+{
+  "name": "muber",
+  "version": "1.0.0",
+  "description": "Learning how mongodb fits with node and express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.mj",
+    "start:test": "mocha --recursive -R min",
+    "test": "nodemon --exec npm run start:test"
+  },
+  "author": "Umer Kang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1",
+    "supertest": "^6.2.2"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.0",
+    "nodemon": "^2.0.15"
+  }
+}
