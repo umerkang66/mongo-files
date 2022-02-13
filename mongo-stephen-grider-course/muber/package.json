@@ -4,9 +4,9 @@
   "description": "Learning how mongodb fits with node and express",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.mj",
+    "dev": "nodemon index.js",
     "start:test": "mocha --recursive -R min",
-    "test": "nodemon --exec npm run start:test"
+    "test": "NODE_ENV=test nodemon --exec npm run start:test"
   },
   "author": "Umer Kang",
   "license": "ISC",
