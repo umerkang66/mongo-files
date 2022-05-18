@@ -8,9 +8,7 @@ describe('Associations', () => {
 
   beforeEach(done => {
     newUser = new User({ name: 'Umer' });
-
     blogPost = BlogPost({ title: 'JS is Great', content: 'Yep, it really is' });
-
     comment = new Comment({ content: 'Congrats on great post' });
 
     // Associate documents with other documents

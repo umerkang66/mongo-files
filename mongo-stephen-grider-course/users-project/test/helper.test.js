@@ -1,10 +1,11 @@
+// Because this file has "before" and "beforeEach" functions calls, as mocha should have already loaded all the files, these two functions will run before anything.
 // Starting setup of testing-library
 const mongoose = require('mongoose');
 
 // We have to run the other test, only after we connect to the database, so we have to sue
 // Difference between before, and beforeEach that beforeEach runs after every "it" statement, but before only runs once
 before(done => {
-  // Connecting too the local mongodb instance
+  // Connecting to the local mongodb instance
   // Last part is mongodb database name
   mongoose.connect('mongodb://localhost:27017/users_test');
 
